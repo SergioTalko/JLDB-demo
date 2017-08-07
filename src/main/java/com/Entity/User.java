@@ -18,6 +18,7 @@ public class User {
     private Date date_registered;
     private Date last_active_date;
 
+    @ManyToOne(fetch = FetchType.LAZY)
     private Office office;  //
 
 
@@ -35,7 +36,7 @@ public class User {
         this.phone = phone;
         this.date_registered = new Date();
         this.last_active_date = new Date();
-        
+
 
     }
 
@@ -85,11 +86,6 @@ public class User {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    public Office getOffice() {
-        return office;
-    }
-
     public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
@@ -123,7 +119,4 @@ public class User {
     }
 
 
-    public void setOffice(Office office) {
-        this.office = office;
-    }
 }
