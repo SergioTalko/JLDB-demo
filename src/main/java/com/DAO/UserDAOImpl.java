@@ -23,5 +23,8 @@ public class UserDAOImpl implements UserDAO {
         return o;
     }
 
-
+    /*@Override
+    public void delete(Object o) {
+        entityManager.remove(o);
+    }*/
 }

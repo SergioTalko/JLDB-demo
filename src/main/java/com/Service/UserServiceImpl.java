@@ -16,4 +16,9 @@ public class UserServiceImpl implements UserService {
     public Object create(Object o) {
       return   userDAO.create(o);
     }
+
+   /* @Override
+    public void delete(Object o) {
+        userDAO.delete(o);
+    }*/
 }

@@ -19,6 +19,10 @@ public class Office {
 
     //Constructors
 
+
+    public Office() {
+    }
+
     public Office(String name, String address, String tel, String contact) {
         this.name = name;
         this.address = address;

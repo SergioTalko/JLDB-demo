@@ -5,6 +5,7 @@ package com.Controller;
 import com.Entity.Office;
 import com.Entity.User;
 import com.Entity.UserType;
+import com.Service.OfficeServiceImpl;
 import com.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,17 +19,20 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private OfficeServiceImpl officeService;
 
-    @RequestMapping("/register")
-    ModelAndView register() {
-        ModelAndView modelAndView = new ModelAndView("welcome");
 
-        Office office = new Office("office", "test", "10000000", "Test");
+    @RequestMapping("/register_user")
+    ModelAndView register_user() {
+        ModelAndView modelAndView = new ModelAndView("welcome_user");
 
-        modelAndView.addObject("user", office);
+       User user = new User(UserType.ADMIN,"shshsjsj@","test","test_user","100");
+
+        modelAndView.addObject("user", user);
         modelAndView.addObject("state", "registered");
 
-        userService.create(office);
+        userService.create(user);
 
         return modelAndView;
 

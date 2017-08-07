@@ -9,40 +9,42 @@ import java.util.Date;
 @Transactional
 @Table(name = "USERS")
 public class User {
-    private Long id;
+    private Long user_id;
     private UserType type;
     private String email;
     private String password;
-    private String name;
-    private String tel;
-    private Date regDate;
-    private Date lastActive;
-    private Long officeID;
+    private String user_name;
+    private String phone;
+    private Date date_registered;
+    private Date last_active_date;
 
     private Office office;  //
 
 
     //Constructors
 
-    public User(UserType type, String email, String password, String name, String tel, Office office) {
+
+    public User() {
+    }
+
+    public User(UserType type, String email, String password, String user_name, String phone) {
         this.type = type;
         this.email = email;
         this.password = password;
-        this.name = name;
-        this.tel = tel;
-        this.regDate = new Date();
-        this.lastActive = null;
-        this.office = office;
+        this.user_name = user_name;
+        this.phone = phone;
+        this.date_registered = new Date();
+        this.last_active_date = new Date();
+        
 
     }
 
     //Getters
     @Id
-    @SequenceGenerator(name = "USERID_SEQ", sequenceName = "USERID_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERID_SEQ")
-    @Column(name = "ID")
-    public Long getId() {
-        return id;
+    @SequenceGenerator(name = "USERS_SEQ", sequenceName = "USERS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
+    public Long getUser_id() {
+        return user_id;
     }
 
     @Column(name = "TYPE")
@@ -60,29 +62,26 @@ public class User {
         return password;
     }
 
-    @Column(name = "NAME")
-    public String getName() {
-        return name;
+    @Column(name = "USER_NAME")
+    public String getUser_name() {
+        return user_name;
     }
 
-    @Column(name = "TEL")
-    public String getTel() {
-        return tel;
+    @Column(name = "PHONE")
+    public String getPhone() {
+        return phone;
     }
 
-    @Column(name = "DATE_REG")
-    public Date getRegDate() {
-        return regDate;
+
+    @Column(name = "DATE_REGISTERED")
+    public Date getDate_registered() {
+        return date_registered;
     }
 
-    @Column(name = "LAST_ACTIVE")
-    public Date getLastActive() {
-        return lastActive;
-    }
 
-    @Column(name = "OFFICEID")
-    public Long getOfficeID() {
-        return officeID;
+    @Column(name = "LAST_ACTIVE_DATE")
+    public Date getLast_active_date() {
+        return last_active_date;
     }
 
 
@@ -91,8 +90,8 @@ public class User {
         return office;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public void setType(UserType type) {
@@ -107,25 +106,22 @@ public class User {
         this.password = password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
+    public void setDate_registered(Date date_registered) {
+        this.date_registered = date_registered;
     }
 
-    public void setLastActive(Date lastActive) {
-        this.lastActive = lastActive;
+    public void setLast_active_date(Date last_active_date) {
+        this.last_active_date = last_active_date;
     }
 
-    public void setOfficeID(Long officeID) {
-        this.officeID = officeID;
-    }
 
     public void setOffice(Office office) {
         this.office = office;
