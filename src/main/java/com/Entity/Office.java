@@ -14,6 +14,8 @@ public class Office {
     private String address;
     private String tel;
     private String contact;
+
+    @OneToMany(targetEntity = User.class, mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<User> users;          //from User entity
 
 
@@ -32,7 +34,6 @@ public class Office {
     }
 
     //Getters
-
 
 
     @Id
@@ -64,11 +65,7 @@ public class Office {
     }
 
 
-    @OrderColumn
-    @OneToMany(targetEntity = User.class, mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    public List<User> getUsers() {
-        return users;
-    }
+
 
 
     public void setOffice_id(Long office_id) {
@@ -91,7 +88,5 @@ public class Office {
         this.contact = contact;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+
 }

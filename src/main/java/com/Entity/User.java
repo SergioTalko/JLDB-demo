@@ -1,5 +1,6 @@
 package com.Entity;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class User {
     private String phone;
     private Date date_registered;
     private Date last_active_date;
+    private Long officeid;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Office office;  //
@@ -36,6 +38,7 @@ public class User {
         this.phone = phone;
         this.date_registered = new Date();
         this.last_active_date = new Date();
+        this.officeid = (long)21;
 
 
     }
@@ -85,6 +88,10 @@ public class User {
         return last_active_date;
     }
 
+    @Column(name = "OFFICEID")
+    public Long getOfficeid() {
+        return officeid;
+    }
 
     public void setUser_id(Long user_id) {
         this.user_id = user_id;
@@ -118,5 +125,7 @@ public class User {
         this.last_active_date = last_active_date;
     }
 
-
+    public void setOfficeid(Long officeid) {
+        this.officeid = officeid;
+    }
 }
