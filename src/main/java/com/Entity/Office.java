@@ -4,6 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Transactional
@@ -15,8 +16,8 @@ public class Office {
     private String tel;
     private String contact;
 
-    @OneToMany(targetEntity = User.class, mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<User> users;          //from User entity
+
+    private Set<User> users;          //from User entity
 
 
     //Constructors
@@ -64,9 +65,12 @@ public class Office {
         return contact;
     }
 
+    @OneToMany(targetEntity = User.class, mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Set<User> getUsers() {
+        return users;
+    }
 
-
-
+    //setters
 
     public void setOffice_id(Long office_id) {
         this.office_id = office_id;
@@ -88,5 +92,19 @@ public class Office {
         this.contact = contact;
     }
 
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
+    @Override
+    public String toString() {
+        return "Office{" +
+                "office_id=" + office_id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", tel='" + tel + '\'' +
+                ", contact='" + contact + '\'' +
+                ", users=" + users +
+                '}';
+    }
 }

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -16,9 +17,9 @@ public class OfficeDAOImpl implements OfficeDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-   /* public Session getSession() {
+    public Session getSession() {
         return entityManager.unwrap(Session.class);
-    }*/
+    }
 
 
 
@@ -38,13 +39,22 @@ public class OfficeDAOImpl implements OfficeDAO {
         query.executeUpdate();
     }*/
 
-    /*@Override
+    @Override
     public Office getOffice(String name) {
-        Session session = getSession();
-        Query query = session.createQuery("from Office where name =:name");
+        String hql = "from Office f where f.name = :name";
+        Query query = getSession().createQuery(hql);
         query.setParameter("name", name);
 
         return (Office) query.uniqueResult();
+    }
+
+
+    /*@Override
+    public Object getById(Long id) {
+        Session session = getSession();
+        Query query = session.createQuery("from Offices");
+        List<Object> list = query.list();
+        return list;
     }*/
 
     //todo

@@ -18,9 +18,9 @@ public class User {
     private String phone;
     private Date date_registered;
     private Date last_active_date;
-    private Long officeid;
+   /* private Long officeid;*/
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
     private Office office;  //
 
 
@@ -30,7 +30,7 @@ public class User {
     public User() {
     }
 
-    public User(UserType type, String email, String password, String user_name, String phone) {
+    public User(UserType type, String email, String password, String user_name, String phone, Office office) {
         this.type = type;
         this.email = email;
         this.password = password;
@@ -38,7 +38,7 @@ public class User {
         this.phone = phone;
         this.date_registered = new Date();
         this.last_active_date = new Date();
-        this.officeid = (long)21;
+        this.office = office;
 
 
     }
@@ -88,10 +88,18 @@ public class User {
         return last_active_date;
     }
 
-    @Column(name = "OFFICEID")
+    /*@Column(name = "OFFICEID")
     public Long getOfficeid() {
         return officeid;
+    }*/
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OFFICE_ID")
+    public Office getOffice() {
+        return office;
     }
+
+    //setters
 
     public void setUser_id(Long user_id) {
         this.user_id = user_id;
@@ -125,7 +133,13 @@ public class User {
         this.last_active_date = last_active_date;
     }
 
-    public void setOfficeid(Long officeid) {
+   /* public void setOfficeid(Long officeid) {
         this.officeid = officeid;
+    }*/
+
+
+    //
+    public void setOffice(Office office) {
+        this.office = office;
     }
 }

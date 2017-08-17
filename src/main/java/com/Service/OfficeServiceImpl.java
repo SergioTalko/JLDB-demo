@@ -22,10 +22,10 @@ public class OfficeServiceImpl implements OfficeService {
         officeDAO.delete(o);
     }*/
 
-   /* @Override
+    @Override
     public Office getOffice(String name) {
         return officeDAO.getOffice(name);
-    }*/
+    }
 
     //TODO
 }

@@ -18,7 +18,7 @@ public class OfficeController {
     ModelAndView register() {
         ModelAndView modelAndView = new ModelAndView("welcome");
 
-        Office office = new Office("office2", "test", "10000000", "Test");
+        Office office = new Office("office4", "test", "10000000", "Test");
 
         modelAndView.addObject("office", office);
         modelAndView.addObject("state", "registered");
@@ -29,17 +29,17 @@ public class OfficeController {
     }
 
 
-/*    @RequestMapping("/remove")
-    ModelAndView remove_user() {
-        ModelAndView modelAndView = new ModelAndView("remove_office");
-        Office office = new Office("office1", "test", "10000000", "Test");
+    @RequestMapping("/getOffice")
+    ModelAndView getOffice() {
+        ModelAndView modelAndView = new ModelAndView("get_office");
 
-        modelAndView.addObject("state", "removed");
+        Office office = officeService.getOffice("office1");
 
-        officeService.delete(office);
+        modelAndView.addObject("office", office);
+
 
         return modelAndView;
-    }*/
+    }
 
 
 }
