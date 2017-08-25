@@ -29,15 +29,6 @@ public class OfficeDAOImpl implements OfficeDAO {
         return o;
     }
 
-    /*@Override
-    public void delete(Object o) {
-       // entityManager.remove(o);
-        Session session = getSession();
-        Query query = session.createQuery("delete from Office where office_id = :office_id");
-        query.setParameter("office_id", ((Office) o).getOffice_id());
-
-        query.executeUpdate();
-    }*/
 
     @Override
     public Office getOffice(String name) {
@@ -48,14 +39,13 @@ public class OfficeDAOImpl implements OfficeDAO {
         return (Office) query.uniqueResult();
     }
 
-
-    /*@Override
-    public Object getById(Long id) {
+    @Override
+    public List<Object> getAll() {
         Session session = getSession();
-        Query query = session.createQuery("from Offices");
+        Query query = session.createQuery("from Office");
         List<Object> list = query.list();
         return list;
-    }*/
+    }
 
     //todo
 }

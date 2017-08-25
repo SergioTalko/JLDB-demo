@@ -5,6 +5,8 @@ import com.Entity.Office;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OfficeServiceImpl implements OfficeService {
 
@@ -17,14 +19,15 @@ public class OfficeServiceImpl implements OfficeService {
         return officeDAO.create(o);
     }
 
-   /* @Override
-    public void delete(Object o) {
-        officeDAO.delete(o);
-    }*/
 
     @Override
     public Office getOffice(String name) {
         return officeDAO.getOffice(name);
+    }
+
+    @Override
+    public List<Object> getAll() {
+        return officeDAO.getAll();
     }
 
     //TODO

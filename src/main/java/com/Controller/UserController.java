@@ -39,16 +39,11 @@ public class UserController {
 
     }
 
-   /* @RequestMapping("/user_info")
-    ModelAndView user_info() {
-        ModelAndView modelAndView = new ModelAndView("user_info");
-
-        User user = new User(UserType.ADMIN, "shshsjsj@", "test1", "test_user1", "100");
-
-        modelAndView.addObject("user", user);
-
-        userService.create(user);
-
+    @RequestMapping("/newuser")
+    public ModelAndView newuser(){
+        ModelAndView modelAndView = new ModelAndView("adduser");
+        modelAndView.addObject("officeslist",officeService.getAll());
+        modelAndView.addObject("positionslist",userService.getPositions());
         return modelAndView;
-    }*/
+    }
 }
