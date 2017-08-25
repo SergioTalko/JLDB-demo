@@ -18,7 +18,6 @@ public class User {
     private String phone;
     private Date date_registered;
     private Date last_active_date;
-   /* private Long officeid;*/
 
 
     private Office office;  //
@@ -88,10 +87,6 @@ public class User {
         return last_active_date;
     }
 
-    /*@Column(name = "OFFICEID")
-    public Long getOfficeid() {
-        return officeid;
-    }*/
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OFFICE_ID")
@@ -132,10 +127,6 @@ public class User {
     public void setLast_active_date(Date last_active_date) {
         this.last_active_date = last_active_date;
     }
-
-   /* public void setOfficeid(Long officeid) {
-        this.officeid = officeid;
-    }*/
 
 
     //
