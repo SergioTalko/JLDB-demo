@@ -10,4 +10,6 @@ public interface UserService extends AbstractService {
     List<UserType> getPositions();
 
     User getUser(String user_name);
+
+    List<User> getUsers(String name);
 }

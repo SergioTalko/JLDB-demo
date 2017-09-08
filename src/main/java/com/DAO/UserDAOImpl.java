@@ -50,4 +50,19 @@ public class UserDAOImpl implements UserDAO {
 
         return (User) query.uniqueResult();
     }
+
+    @Override
+    public List<User> getUsers(String name) {
+        Session session = getSession();
+        Query query = session.createQuery("from User f where f.user_name = :user_name");
+        query.setParameter("user_name", name);
+        //TODO: Check
+        List<User> list = query.list();
+
+        if (list.size() == 0)
+            return null;
+        return list;
+    }
+
+
 }

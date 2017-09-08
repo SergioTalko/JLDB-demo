@@ -63,5 +63,17 @@ public class UserController {
 
     }
 
+    @RequestMapping("/find_users")
+    ModelAndView find_users() {
+        ModelAndView modelAndView = new ModelAndView("find_users");
+
+        List<User> result = userService.getUsers("first_use");
+
+        modelAndView.addObject("users", result);
+
+        return modelAndView;
+
+    }
+
 
 }
