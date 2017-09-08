@@ -19,6 +19,12 @@ public class OfficeServiceImpl implements OfficeService {
         return officeDAO.create(o);
     }
 
+    @Override
+    public void update(Object o) {
+        officeDAO.update(o);
+    }
+
+
 
     @Override
     public Office getOffice(String name) {

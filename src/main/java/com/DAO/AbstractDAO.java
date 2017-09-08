@@ -5,6 +5,7 @@ import java.util.List;
 public interface AbstractDAO {
 
     Object create(Object o);
+    Object update(Object o);
 
     /*void delete(Object o);*/
 

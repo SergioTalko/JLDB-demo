@@ -18,7 +18,7 @@ public class OfficeController {
     ModelAndView register() {
         ModelAndView modelAndView = new ModelAndView("welcome");
 
-        Office office = new Office("office4", "test", "10000000", "Test");
+        Office office = new Office("office8", "office7", "10000000", "Test");
 
         modelAndView.addObject("office", office);
         modelAndView.addObject("state", "registered");
@@ -39,6 +39,18 @@ public class OfficeController {
 
 
         return modelAndView;
+    }
+
+    @RequestMapping("/find_office")
+    ModelAndView find_office() {
+        ModelAndView modelAndView = new ModelAndView("find_office");
+
+        Office result = officeService.getOffice("office7");
+
+        modelAndView.addObject("office", result);
+
+        return modelAndView;
+
     }
 
 

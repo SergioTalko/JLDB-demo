@@ -4,7 +4,9 @@
     <title>Title</title>
 </head>
 <body>
-Congrats, ${office.name} you have successfully ${state}!
+
+
+Congrats, ${office} you have successfully ${state}!
 
 </body>
 </html>

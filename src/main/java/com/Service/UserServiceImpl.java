@@ -1,6 +1,7 @@
 package com.Service;
 
 import com.DAO.UserDAO;
+import com.Entity.User;
 import com.Entity.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void update(Object o) {
+        userDAO.update(o);
+    }
+
+
+    @Override
     public List<Object> getAll() {
         return userDAO.getAll();
     }
@@ -29,5 +36,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserType> getPositions() {
         return Arrays.asList(UserType.values());
+    }
+
+    @Override
+    public User getUser(String user_name) {
+        return userDAO.getUser(user_name);
     }
 }

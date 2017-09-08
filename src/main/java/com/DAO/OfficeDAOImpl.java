@@ -29,6 +29,12 @@ public class OfficeDAOImpl implements OfficeDAO {
         return o;
     }
 
+    @Override
+    public Object update(Object o) {
+        Session session = getSession();
+        session.update(o);
+        return o;
+    }
 
     @Override
     public Office getOffice(String name) {

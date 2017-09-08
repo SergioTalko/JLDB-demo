@@ -88,7 +88,7 @@ public class User {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "OFFICE_ID")
     public Office getOffice() {
         return office;
@@ -133,4 +133,6 @@ public class User {
     public void setOffice(Office office) {
         this.office = office;
     }
+
+
 }

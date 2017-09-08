@@ -65,7 +65,7 @@ public class Office {
         return contact;
     }
 
-    @OneToMany(targetEntity = User.class, mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = User.class, mappedBy = "office", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<User> getUsers() {
         return users;
     }
