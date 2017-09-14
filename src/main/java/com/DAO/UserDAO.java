@@ -9,4 +9,6 @@ public interface UserDAO extends AbstractDAO {
     User getUser(String user_name);
 
     List<User> getUsers(String name);
+
+
 }

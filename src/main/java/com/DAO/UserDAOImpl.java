@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -59,10 +60,11 @@ public class UserDAOImpl implements UserDAO {
         //TODO: Check
         List<User> list = query.list();
 
-        if (list.size() == 0)
+        if (list.isEmpty())
             return null;
         return list;
     }
+
 
 
 }

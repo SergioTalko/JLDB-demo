@@ -53,7 +53,7 @@ public class UserController {
 
     @RequestMapping("/find_user")
     ModelAndView find_user() {
-        ModelAndView modelAndView = new ModelAndView("find_user");
+        ModelAndView modelAndView = new ModelAndView("find_user.vm");
 
         User result = userService.getUser("test");
 
@@ -67,13 +67,14 @@ public class UserController {
     ModelAndView find_users() {
         ModelAndView modelAndView = new ModelAndView("find_users");
 
-        List<User> result = userService.getUsers("first_use");
+        List<User> result = userService.getUsers("first_user");
 
         modelAndView.addObject("users", result);
 
         return modelAndView;
 
     }
+
 
 
 }

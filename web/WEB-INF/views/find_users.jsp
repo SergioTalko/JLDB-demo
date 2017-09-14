@@ -13,6 +13,6 @@
 <body>
 
 
-Hi there, ${users}!
+Hi there, ${(users.get(1)).user_name}!
 </body>
 </html>
