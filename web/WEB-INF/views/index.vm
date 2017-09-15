@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title></title>
+</head>
+
+
+<body>
+<header>
+    Test
+</header>
+
+<button onclick="testajax()"/>
+
+          #*logic*#
+
+          #*html*#
+
+
+<script>
+    function testajax() {
+        debugger;
+        $.ajax({
+            url: '/test_ajax',
+            data: ({
+                email: 'testEmail',
+                name: 'testName'
+            }),
+            success: function (data) {
+                alert('success');
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+    };
+</script>
+
+
+</body>
+</html>
